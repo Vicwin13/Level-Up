@@ -75,6 +75,7 @@ nav{
 }
 
 /* this is the style for the notifications */
+
 .notification{
     display: flex;
     align-items: center;
@@ -276,6 +277,7 @@ progress::after{
     border-radius: 14px;
     padding: 1rem;
     z-index: 1;
+    display: none;
 }
 
 
@@ -308,6 +310,7 @@ progress::after{
     background-color: white;
     padding: 6px 0;
     border-radius: 14px;
+    display: none;
 }
 
 .dc-name{
@@ -328,36 +331,64 @@ progress::after{
     display: flex;
     align-items: center;
     line-height: 0;
+    gap: 8px;
 }
 
 .dc-content:nth-child(1){
     color: var(--search-fill);
+    font-size: 13px;
+    font-weight: 600;
 
 }
 
 .store-icon{
     display: flex;
+    gap: 8px;
     align-items: center;
-    padding: 0 8px;
+    padding: 6px 6px;
     line-height: 0;
     font-size: 13px;
-    font-weight: 600;
+    color: var(--search-fill);
+    font-weight: 400;
 }
 .collection-links{
-    padding: 2px 14px;
-    display: flex;
-    flex-direction: column;
+    padding: 2px 6px;
+
 }
 .collection-links a{
  text-decoration: none;
+ display: block;
  color: var(--search-fill);
- padding: 4px 2px;
+ padding: 6px 6px;
  font-size: 13px ;
- font-weight: 600px;
+ font-weight: 400px;
 }
 
+.email{
+    padding: 0px 12px;
+    line-height: 0;
+    color: var(--search-fill);
+    font-size: 13px;
+    font-weight: 500;
+}
+.email span{
+    font-size: 12px;
+    color: var(--search-stroke);
+}
 
+.account p:nth-child(2){
+    padding: 6px 12px 0px ;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--search-fill);
+}
 
+.account p:nth-child(3){
+    padding: 6px 12px ;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--search-fill);
+}
 
 
 
