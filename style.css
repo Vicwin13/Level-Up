@@ -8,7 +8,8 @@
     --search-stroke: #616161;
     --guide-stroke: #dbdbdb;
     --dc-fill: #36fba1;
-    --font-dark: #323232
+    --font-dark: #323232;
+    --font-light2 : #f6f3f6;
 
 }
 
@@ -79,9 +80,7 @@ nav{
     align-items: center;
     gap: .5rem;
     justify-content: center;
-    
-    
-    
+    position: relative;    
 }
 
 .bell{
@@ -107,7 +106,7 @@ nav{
     font-weight: 500;
 }
 
-.profile .dc{
+.profile .dc, .dc-content .dc{
     background-color: #36fba1;
     text-align: center;
     border-radius: 6px ;
@@ -233,18 +232,129 @@ progress::after{
     
     display: flex;
     justify-content: space-between;
+    background-color: #f6f3f6;
+    padding: .5rem;
+    border-radius: 8px;
+    margin-top: .5rem;
 }
 
 .section-two .selection{
     display: flex;
+    gap: .5rem;
+ 
+
+}
+
+.customize{
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--font-dark);
+}
+
+.choose-learn{
+    padding: 1rem 0;
+}
+
+.custom-button{
+    background-color: #404040;
+
+    border: 1px solid rgba(255, 255, 255, .2);
+}
+.learn{
+    color: #005bd3;
+}
+
+/* This is for the drop down of the notification bell */
+
+.notification-alert{
+    position: absolute;
+    background-color: #fff;
+    top: 4.5rem;
+    right: 0rem;
+    width: 24rem;
+    border: 1px solid var(--guide-stroke);
+    border-radius: 14px;
+    padding: 1rem;
+    z-index: 1;
 }
 
 
+.alert-top-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.alert-top-content p{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--not-fill);
+}
+.alert-text{
+    background-color: var(--main-bg);
+    color: var(--search-stroke);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 1rem;
+}
 
+/* This is for the collections drop down */
+.collection-drop-down{
+    position: absolute;
+    top: 3.5rem;
+    width: 20rem;
+    right: 0;
+    z-index: 1;
+    background-color: white;
+    padding: 6px 0;
+    border-radius: 14px;
+}
 
+.dc-name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px 0px 8px;
+    height: fit-content;
+    background-color: var(--main-bg);
+    border-radius: 8px;
+    height: 2.25rem;
+}
 
+.first-contain{
+    padding: 0 6px;
+}
+.dc-content{
+    display: flex;
+    align-items: center;
+    line-height: 0;
+}
 
+.dc-content:nth-child(1){
+    color: var(--search-fill);
+
+}
+
+.store-icon{
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    line-height: 0;
+    font-size: 13px;
+    font-weight: 600;
+}
+.collection-links{
+    padding: 2px 14px;
+    display: flex;
+    flex-direction: column;
+}
+.collection-links a{
+ text-decoration: none;
+ color: var(--search-fill);
+ padding: 4px 2px;
+ font-size: 13px ;
+ font-weight: 600px;
+}
 
 
 
@@ -279,5 +389,5 @@ progress::after{
 @media screen and (min-width:730px) {
     .shop-icon-two {
         display: none;
-    }
-}
+    };
+};
