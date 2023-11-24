@@ -235,12 +235,22 @@ progress::after{
 
 .section-two{
     
-    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
     justify-content: space-between;
     background-color: #f6f3f6;
     padding: .5rem;
     border-radius: 8px;
     margin-top: .5rem;
+    /* transition: 2s ease-in-out; */
+    /* display: none; */
+    display: flex;
+}
+
+.section-two-show{
+    display: flex;
+    transition: 2s ease-in-out;
+
 }
 
 .section-two .selection{
@@ -258,6 +268,12 @@ progress::after{
 
 .choose-learn{
     padding: 1rem 0;
+    
+}
+
+.choose-learn p:nth-child(1){
+
+    line-height: normal;
 }
 
 .custom-button{
@@ -403,7 +419,23 @@ progress::after{
     color: var(--search-fill);
 }
 
+.down-arrow{
+    transition: transform .2s ease-in-out;
 
+}
+
+.up-arrow{
+    transform: rotate(180deg);
+}
+
+.hide{
+    display: none;
+}
+
+.show-hidden{
+    display: block;
+    
+}
 
 
 
