@@ -20,6 +20,8 @@
     padding: 0;
     font-family: 'Inter', serif;
     background-color: var(--main-bg);
+    min-width: max-content;
+    width: 100vw;
 }
 
 nav{
@@ -28,13 +30,18 @@ nav{
     justify-content: space-between;
     align-items: center;
     /* height: 3.5rem; */
+    margin: 0 auto;
     padding: 0.75rem 1rem 0.75rem 1rem;
 
 }
 .shop-icons{
     display: flex;
     align-items: center;
+    padding: 0 1rem 0 0;
     flex-direction: row-reverse;
+}
+.shop-icon-one{
+    display: none;
 }
 
 /* This is the style for input container */
@@ -239,23 +246,22 @@ progress::after{
     scroll-behavior: smooth;
     justify-content: space-between;
     background-color: #f6f3f6;
-    padding: .5rem;
+    padding: 1rem .5rem;
     border-radius: 8px;
     margin-top: .5rem;
     /* transition: 2s ease-in-out; */
     /* display: none; */
     display: flex;
-}
-
-.section-two-show{
-    display: flex;
-    transition: 2s ease-in-out;
 
 }
+
+
 
 .section-two .selection{
     display: flex;
     gap: .5rem;
+    
+    width: 100%;
  
 
 }
@@ -279,7 +285,7 @@ progress::after{
 .custom-button{
     background-color: #404040;
     border: 1.5px 1.5px 0px 1.5px solid rgba(255, 255, 255, .2);
-    padding: 6px 12px;
+    padding: 12px 12px;
     border-radius: 6px;
     box-shadow: 
     0px 0px 0px 1.5px #333333,
@@ -424,19 +430,77 @@ progress::after{
 
 }
 
+
+
 .up-arrow{
     transform: rotate(180deg);
 }
 
-.hide{
+/* .hide{
     display: none;
+} */
+
+.dope{
+    /* display: flex; */
+    display: none;
+    width: 100%;
+    justify-content: space-between;
+}
+.big-dope{
+ 
+    width: 100%;
 }
 
 .show-hidden{
-    display: block;
+    display: flex;
     
 }
 
+/* .container{
+    
+    display: none;
+} */
+
+
+/* styling the checkbox  */
+
+.checkbox-holder{
+    position: relative;
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+    user-select: none;
+    padding: 5px;
+}
+
+.checkbox-holder input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    opacity: 0;
+}
+
+.check-mark{
+    
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    background-image: url("https://crushingit.tech/hackathon-assets/icon-dashed-circle.svg");
+    background-repeat: no-repeat;
+    top: -2px;
+    left: 0;
+    /* background-position: center; */
+    background-size: cover;
+}
+
+.checkbox-holder.loading input ~ .check-mark{
+    background-image: url('https://crushingit.tech/hackathon-assets/icon-spinner.svg');
+}
+
+.checkbox-holder input:checked ~ .check-mark{
+    background-image: url("https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg");
+}
 
 
 
@@ -467,4 +531,7 @@ progress::after{
     .shop-icon-two {
         display: none;
     };
+    .shop-icon-one{
+        display: block
+    }
 };

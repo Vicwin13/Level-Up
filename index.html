@@ -172,7 +172,13 @@
 
         <section class="setup-guide">
             <div class="first-setup">
-                <div class="section-one">
+                <div 
+                class="section-one"
+                id="section-one"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="container"
+                >
                     <p>Setup guide</p>
                     <div>
                         <svg class="down-arrow" width="20" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -190,124 +196,207 @@
                 <div>
                    <span class="increament">1</span>/5 completed
                 </div>
+
                 <progress id="load" value="0" max="5"> </progress>
 
                 </div>
              
+    <div 
+    class="container"
+    aria-labelledby="section-one"
+    id="container"
+    >
+
+        
+                <!-- This is the first item -->
         <section class="section-two">
             <div class="selection">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="none">
-                        <circle cx="16" cy="16" r="12" stroke="#8a8a8a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6" />
-                    </svg>
+                <div class="checkbox-holder">
+                    <input type="checkbox" name="check" id="">
+                    <span class="check-mark"></span>
                 </div>
-                <div >
-                    <button class="customize">Customize your online store</button>
-                    <div class="choose-learn hide" >
-                    <p> Choose a theme and add your logo, colors and Images to reflex your brand.</p>
-                    <p class="learn hide">Learn more</p>
+
+                <div class="big-dope">
+                    <button 
+                    class="customize"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="dope-content"
+                    id="customize"
+                    >Customize your online store</button>
+                <div 
+                class="dope" 
+                id="dope-content"
+                aria-labelledby="customize"
+                >
+                    <div>
+                        <div class="choose-learn  " >
+                        <p> Choose a theme and add your logo, colors and Images to reflex your brand.</p>
+                        <p class="learn  ">Learn more</p>
+                        </div>
+                        <button class="custom-button  ">
+                            Customize theme
+                        </button>
                     </div>
-                    <button class="custom-button hide">
-                        Customize theme
-                    </button>
+                    <div class="image-urls  ">
+                        <img src="https://crushingit.tech/hackathon-assets/customise-store.png" alt="" srcset="">
+                    </div>
+                </div>
                 </div>
             </div>
-                <div class="image-urls hide">
-                    <img src="https://crushingit.tech/hackathon-assets/customise-store.png" alt="" srcset="">
-                </div>
         </section>
 
+        <!-- This is the second item -->
         <section class="section-two">
             <div class="selection">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="none">
-                        <circle cx="16" cy="16" r="12" stroke="#8a8a8a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6" />
-                    </svg>
+                <div class="checkbox-holder">
+                    <input type="checkbox" name="check" id="">
+                    <span class="check-mark"></span>
                 </div>
-                <div >
-                    <button class="customize">Add your first product</button>
-                    <div class="choose-learn hide">
-                        <p class=""> Write a description, add photos, and set pricing for the products you plan to sell.</p>
-                        <p class="learn ">Learn more</p>
+                <div class="big-dope">
+                    <button 
+                    class="customize"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="product-content"
+                    id="product"
+                    >Add your first product</button>
+                
+                    <div class="dope"
+                id="product-content"
+                aria-labelledby="product"
+                >
+                    <div>
+                    <div class="choose-learn  " >
+                    <p> Write a description, add photos, and set pricing for the products you plan to sell.</p>
+                    <p class="learn  ">Learn more</p>
                     </div>
-                    <button class="custom-button hide">
+                    <button class="custom-button ">
                         Add product
-                    </button>   
-                    <button class="import hide"> Import product</button>
+                    </button>
+                    <button>import product</button>
+                </div>
+                 <div class="image-urls  ">
+                    <img src="https://crushingit.tech/hackathon-assets/product.png" alt="" srcset="">
+                 </div>
+                </div>
                 </div>
             </div>
-                <div class="image-urls hide">
-                    <img src="https://crushingit.tech/hackathon-assets/product.png" alt="" srcset="">
-                </div>
         </section>
+
+        <!-- This is the third item -->
         <section class="section-two">
             <div class="selection">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="none">
-                        <circle cx="16" cy="16" r="12" stroke="#8a8a8a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6" />
-                    </svg>
+                <div class="checkbox-holder">
+                    <input type="checkbox" name="check" id="">
+                    <span class="check-mark"></span>
                 </div>
-                <div >
-                    <button class="customize">Add a custom domain</button>
-                    <div class="choose-learn hide">
-                        <p> Your current domain is 222219.myshopify.com but you can add a custom domain to help customers find your online store. </p>
-                        <p class="learn">Learn more</p>
+                <div class="big-dope">
+                    <button 
+                    class="customize"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="custom-content"
+                    id="custom"
+                    >Add a custom domain</button>
+                
+                <div class="dope"
+                id="custom-content"
+                aria-labelledby="custom"
+                >
+                    <div>
+                    <div class="choose-learn  " >
+                    <p> Your current domain is 222219.myshopify.com but you can add a custom domain to help customers find your online store.</p>
+                    <p class="learn  ">Learn more</p>
                     </div>
-                    <button class="custom-button hide">
+                    <button class="custom-button  ">
                         Add domain
                     </button>
                 </div>
-            </div>
-                <div class="image-urls hide">
+                 <div class="image-urls  ">
                     <img src="https://crushingit.tech/hackathon-assets/website.png" alt="" srcset="">
+                 </div>
                 </div>
+                </div>
+            </div>
         </section>
+        
+
+        <!-- This is the fourth item -->
+
         <section class="section-two">
             <div class="selection">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="none">
-                        <circle cx="16" cy="16" r="12" stroke="#8a8a8a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6" />
-                    </svg>
+                <div class="checkbox-holder">
+                    <input type="checkbox" name="check" id="">
+                    <span class="check-mark"></span>
                 </div>
-                <div >
-                    <button class="customize">Name your store</button>
-                    <div class="choose-learn hide">
+                <div class="big-dope">
+                    <button 
+                    class="customize"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="store-content"
+                    id="store-name"
+                    >Name your store</button>
+                <div class="dope"
+                id="store-content"
+                aria-labelledby="store-name">
+                    <div>
+                    <div class="choose-learn  " >
                     <p> Your temporary store name is currently Davii collections. The store name appears in your admin and your online store.</p>
-                    <p class="learn">Learn more</p>
+                    <p class="learn  ">Learn more</p>
                     </div>
-                    <button class="custom-button hide">
+                    <button class="custom-button  ">
                         Name store
                     </button>
                 </div>
-            </div>
-                <div class="image-urls hide">
+                 <div class="image-urls  ">
                     <img src="https://crushingit.tech/hackathon-assets/name-store.png" alt="" srcset="">
+                 </div>
                 </div>
+                </div>
+            </div>
         </section>
+
+        <!-- This is the fifth item -->
         <section class="section-two">
             <div class="selection">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="none">
-                        <circle cx="16" cy="16" r="12" stroke="#8a8a8a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6" />
-                    </svg>
+                <div class="checkbox-holder">
+                    <input type="checkbox" name="check" id="">
+                    <span class="check-mark"></span>
                 </div>
-                <div >
-                    <button class="customize">Setup payment provider</button>
-                    <div class="choose-learn hide">
+                <div class="big-dope">
+                    <button 
+                    class="customize"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="payment-content"
+                    id="payment"
+                    >Setup payment provider</button>
+                
+                <div 
+                class="dope"
+                id="payment-content"
+                aria-labelledby="payment"
+                >
+                    <div>
+                    <div class="choose-learn  " >
                     <p> Choose a payment provider to start accepting payments. You’ll need to create an account with the payment provider and set it up with your Shopify store.</p>
-                    <p class="learn">Learn more</p>
+                    <p class="learn  ">Learn more</p>
                     </div>
-                    <button class="custom-button hide">
+                    <button class="custom-button  ">
                         Set up payment
                     </button>
                 </div>
-            </div>
-                <div class="image-urls hide">
+                 <div class="image-urls  ">
                     <img src="https://crushingit.tech/hackathon-assets/payment.png" alt="" srcset="">
+                 </div>
                 </div>
+                </div>
+            </div>
         </section>
 
-            
+    </div>
         </div>
 
 

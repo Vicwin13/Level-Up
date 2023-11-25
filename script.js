@@ -64,17 +64,22 @@ cancel.addEventListener('click', function(){
 
 // This is for the display of the setup-guide
 
-const firstSetup = document.querySelector('.first-setup');
-const sectTwo = document.querySelectorAll(['.section-two']);
+const sectionOne = document.querySelector('.section-one');
+const container = document.querySelector(['.container']);
 
-firstSetup.addEventListener('click', function(){
-    sectTwo.forEach((item)=>{
+sectionOne.addEventListener('click', function(event){
+    
         setTimeout(()=>{
-        item.classList.toggle('section-two-show');
+            const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+            this.setAttribute('aria-expanded', !expanded)
+    
+            container.style.display = expanded ? 'none' : 'block';
             
         }, 200)
         arrow.classList.toggle('up-arrow')
-    })
+        event.stopPropagation()
+
+
 })
 
 
@@ -82,47 +87,69 @@ firstSetup.addEventListener('click', function(){
 
 // This is for the dropdowns inside the setup guide
 
-const allSections = document.querySelectorAll('.section-two')
-const customize = document.querySelectorAll('.customize');
-const hidden = document.querySelectorAll('.hide')
-customize.forEach((customItem, index)=>{
-   customItem.addEventListener('click', function(){
 
-    allSections.forEach((sections, i)=>{
-        if( i === index){
-            
-                sections.classList.remove('show-hidden')
-                console.log(sections)
-            
+const customizeButton = document.querySelectorAll('.customize');
+const progressBar = document.getElementById('load');
+
+
+document.addEventListener('DOMContentLoaded', ()=>{
+
+    let totalStep = customizeButton.length;
+    let currentStep=0;
+
+
+    function update( button){
+
+        let isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+        let checkbox = document.querySelector('.check-mark');
+
+        if(isExpanded){
+            currentStep++;
+            checkbox.style.backgroundImage = url('https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg');
+        }
+        else{
+            console.log('yes')
+        }
+        progressBar.value = currentStep;
+        console.log(currentStep)
+
+    }
+
+
+   
+
+    customizeButton.forEach((button)=>{
+        button.addEventListener('click', ()=>{
+            // let parentContainer = button.closest('.section-two')
+     
+
+    customizeButton.forEach((otherButton)=>{
+
+        update(otherButton)
+  
+        let otherParentsContainer = otherButton.closest('.section-two')
+        let otherTargetDope = otherParentsContainer.querySelector('.dope')
+
+        if( otherButton === button){
+            otherTargetDope.classList.toggle('show-hidden')
+        } else{
+            otherTargetDope.classList.remove('show-hidden')
         }
     })
-
-   const currentSelection = customItem.closest('.section-two')
-   currentSelection.classList.toggle('show-hidden')
-
-   hidden.forEach((item)=>{
-    if(!currentSelection.contains(item)){
-        item.classList.toggle('show-hidden')
-    }
-   })
-
+        })
+    })
 })
-
-})
-
 
 
 
 // for the progress bar
 
-function updateProgressBar() {
-    
-    const progressBar = document.getElementById('load');
-  
-    progressBar.value = customize.length
 
-    console.log(progressBar)
-  }
+    
+  
+
+    
 
   
 
