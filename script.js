@@ -97,43 +97,63 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let totalStep = customizeButton.length;
     let currentStep=0;
 
+    const checkboxButton = document.querySelectorAll('.checkbox-button')
 
-    function update( button){
-
-        let isExpanded = button.getAttribute('aria-expanded') === 'true';
-
-        let checkbox = document.querySelector('.check-mark');
-
-        if(isExpanded){
-            currentStep++;
-            checkbox.style.backgroundImage = url('https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg');
-        }
-        else{
-            console.log('yes')
-        }
-        progressBar.value = currentStep;
-        console.log(currentStep)
-
+    function markSelected( checkboxNotSelected){
+        checkboxNotSelected.forEach((item)=>{
+            item.addEventListener('click', ()=>{
+                item.classList.add('hidden')
+            })
+        })
     }
-
-
-   
-
-    customizeButton.forEach((button)=>{
+    // checkboxNotSelected.forEach((box)=>{
+    //     box.addEventListener('click', ()=>{
+    //         box.classList.add('hidden')
+    //     })
+    // })
+    
+    customizeButton.forEach((button, index)=>{
         button.addEventListener('click', ()=>{
             // let parentContainer = button.closest('.section-two')
-     
 
-    customizeButton.forEach((otherButton)=>{
+            let parentContainer = button.closest('.section-two');
+            let targetDope = parentContainer.querySelector('.dope');
+            targetDope.classList.toggle('show-hidden');
 
-        update(otherButton)
-  
+
+            let cuBox = checkboxButton[index];
+            let checkboxNotSelected = cuBox.querySelectorAll('.checkbox-not-selected');
+            // let checkboxNotSelected = buttons.querySelectorAll('.checkbox-not-selected')
+            // let checkboxSpinning = buttons.querySelectorAll('.checkbox-spinning');
+            // let checkboxSelected = buttons.querySelectorAll('.checkbox-selected')
+           
+            // this might be deleted
+            markSelected(checkboxNotSelected)
+           
+
+         
+            
+            // buttons.addEventListener('click', ()=>{
+            //     markSelected(checkboxNotSelected)
+            // } )
+    
+
+    // button.addEventListener('click', () => {
+    //     checkboxButton.forEach((buttons) => {
+    //         let checkboxNotSelected = buttons.querySelectorAll('.checkbox-not-selected');
+    //         markSelected(checkboxNotSelected);
+    //     });
+    // });
+
+ 
+    
+
+    customizeButton.forEach((otherButton, otherIndex)=>{
+
         let otherParentsContainer = otherButton.closest('.section-two')
         let otherTargetDope = otherParentsContainer.querySelector('.dope')
 
-        if( otherButton === button){
-            otherTargetDope.classList.toggle('show-hidden')
-        } else{
+        if( otherIndex !== index){
             otherTargetDope.classList.remove('show-hidden')
         }
     })
