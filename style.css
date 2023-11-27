@@ -349,6 +349,9 @@
   }
 
 
+
+
+
 :root{
     --search-fill: #303030;
     --main-bg : #f1f1f1;
@@ -391,8 +394,11 @@ nav{
     padding: 0 1rem 0 0;
     flex-direction: row-reverse;
 }
+
+
+
 .shop-icon-one{
-    display: none;
+  display: block;
 }
 
 /* This is the style for input container */
@@ -407,15 +413,14 @@ nav{
     padding: 8px;
     /* height: 32px; */
     background-color: var(--search-fill);
-    
 }
 
 .input-container input{
     background: var(--search-fill);
-    width: 29rem;
     border: none;
     background-color: var(--search-fill);
     color: var(--grey);
+    width: 29rem;
 
 }
 
@@ -424,6 +429,12 @@ nav{
     font-size: medium;
     color: var(--grey);
 
+}
+
+.input-container .search{
+  border: none;
+  background: none;
+  
 }
 
 .search svg{
@@ -470,15 +481,27 @@ nav{
     
 }
 
-.profile .dc, .dc-content .dc{
+.profile .dc{
     background-color: #36fba1;
     text-align: center;
     border-radius: 6px ;
     padding: 8.5px 5px 8.5px 5px;
     color: rgba(0, 0, 0, .4);
     font-size: 12px;
+    display: flex;
+    align-items: center;
 }
-
+.dc-content .dc{
+  background-color: #36fba1;
+  text-align: center;
+  border-radius: 6px ;
+  height: .8rem;
+  padding: 9.5px 7px 8.5px 7px;
+  color: rgba(0, 0, 0, .4);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
 
 
 /* this is the style for the second section */
@@ -489,9 +512,10 @@ main{
 }
 
 .second{
-    width: 50rem;
+    max-width: 51rem;
     margin: 0 auto;
     margin-top: 2rem;
+    padding: 1rem;
 }
 .start{
     display: flex;
@@ -535,7 +559,7 @@ main{
     color: var(--font-dark);
     padding: 8px;
     border-radius: 8px;
-    
+    background-color: white;
     
 }
 .first-setup :nth-child(2){
@@ -613,6 +637,7 @@ progress::after{
     gap: .5rem;
     align-items: start;
     width: 100%; 
+    /* background-color: #f3f3f3; */
 
 }
 
@@ -824,10 +849,11 @@ progress::after{
     background: none; 
     cursor: pointer;
     border: none;
-    display: flex;
-    align-items: center;
+    /* display: flex; */
+    align-items: flex-start;
     justify-content: center;
-    
+    align-content: self-start;
+
 
 }
 
@@ -845,6 +871,17 @@ progress::after{
 
 }
 
+.checkbox-spinning{
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  
+}
+
+.checkbox-selected{
+  animation: zoom-in 300ms linear;
+}
 
 
 
@@ -862,18 +899,64 @@ progress::after{
 
 
 
+@keyframes spin {
+  from{
+    transform: rotate(0deg);
+  }
 
+  to{
+    transform: rotate(360deg);
+  }
+}
 
+@keyframes zoom-in {
+  from{
+    transform: scale(0) rotate(270deg);
+    opacity: 0;
+  }
+  to{
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
 
 
 
 /* This is the style for the media queries */
 
-@media screen and (min-width:730px) {
+
+@media screen and (max-width: 840px) {
+  .shop-icon-one{
+    display: none;
+  }
+  .profile :nth-child(1){
+    display: none;
+  }
+  .profile{
+    background: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .input-container input{
+    width: 20rem;
+  }
+  .image-urls{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .input-container input{
+    width: 14.87rem;
+  }
+}
+
+@media screen and (min-width:840px) {
     .shop-icon-two {
         display: none;
-    };
-    .shop-icon-one{
-        display: block
-    }
+ 
+      };
+
 };
+

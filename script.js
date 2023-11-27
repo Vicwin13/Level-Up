@@ -94,23 +94,82 @@ const progressBar = document.getElementById('load');
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
+    const markAsDone = 'checkbox-done'
     let totalStep = customizeButton.length;
-    let currentStep=0;
+    let currentStep= totalStep;
 
     const checkboxButton = document.querySelectorAll('.checkbox-button')
 
+    
     function markSelected( checkboxNotSelected){
         checkboxNotSelected.forEach((item)=>{
             item.addEventListener('click', ()=>{
-                item.classList.add('hidden')
+                item.classList.add('hidden');
+                spin();
+                markDone();
             })
+         
+        })  
+    }
+
+    function spin (checkboxSpinning){
+        checkboxSpinning.forEach((spinner)=>{
+            spinner.classList.remove('hidden')            
         })
     }
-    // checkboxNotSelected.forEach((box)=>{
-    //     box.addEventListener('click', ()=>{
-    //         box.classList.add('hidden')
-    //     })
-    // })
+
+    function markDone(checkboxSelected, checkboxSpinning, checkboxButton) {
+        setTimeout(() => {
+          checkboxSelected.forEach((selected) => {
+            selected.classList.remove('hidden');
+          });
+      
+          checkboxSpinning.forEach((spinner) => {
+            spinner.classList.add('hidden');
+          });
+
+          checkboxButton.forEach((box)=>{
+            box.classList.add(markAsDone);
+          })
+        }, 1500);
+      }
+
+      function markAsDoneOrNot(checkboxButton, checkboxNotSelected, checkboxSelected, checkboxSpinning){
+        checkboxButton.forEach((box)=>{
+            let checkMark = box.classList.contains(markAsDone)
+            
+            if(checkMark){
+                checkboxSpinning.forEach((spinner)=>{
+                    spinner.classList.remove('hidden');
+                });
+                checkboxSelected.forEach((selected)=>{
+                    selected.classList.add('hidden');
+                });
+              
+                box.classList.remove(markAsDone)
+               
+
+            } else{
+                checkboxNotSelected.forEach((item)=>{
+                    item.classList.remove('hidden');
+                });
+                checkboxSelected.forEach((selected)=>{
+                    selected.classList.remove('hidden')
+                });
+
+                checkboxSpinning.forEach((spinner)=>{
+                    spinner.classList.add('hidden')
+                });
+
+                box.classList.add(markAsDone);
+            }
+
+        })
+        
+      }
+  
+
+
     
     customizeButton.forEach((button, index)=>{
         button.addEventListener('click', ()=>{
@@ -123,28 +182,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
             let cuBox = checkboxButton[index];
             let checkboxNotSelected = cuBox.querySelectorAll('.checkbox-not-selected');
-            // let checkboxNotSelected = buttons.querySelectorAll('.checkbox-not-selected')
-            // let checkboxSpinning = buttons.querySelectorAll('.checkbox-spinning');
-            // let checkboxSelected = buttons.querySelectorAll('.checkbox-selected')
-           
-            // this might be deleted
-            markSelected(checkboxNotSelected)
-           
+            let checkboxSpinning = cuBox.querySelectorAll('.checkbox-spinning')
+            let checkboxSelected = cuBox.querySelectorAll('.checkbox-selected')
 
-         
-            
-            // buttons.addEventListener('click', ()=>{
-            //     markSelected(checkboxNotSelected)
-            // } )
-    
-
-    // button.addEventListener('click', () => {
-    //     checkboxButton.forEach((buttons) => {
-    //         let checkboxNotSelected = buttons.querySelectorAll('.checkbox-not-selected');
-    //         markSelected(checkboxNotSelected);
-    //     });
-    // });
-
+            markSelected(checkboxNotSelected, checkboxSpinning, checkboxSelected)
  
     
 
@@ -156,7 +197,18 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if( otherIndex !== index){
             otherTargetDope.classList.remove('show-hidden')
         }
+
+        
     })
+            checkboxNotSelected.forEach((item)=>{
+                item.classList.toggle('hidden');
+            });
+
+            
+            // spin(checkboxSpinning);
+            markDone(checkboxSelected, checkboxSpinning);
+            markAsDoneOrNot(checkboxButton,checkboxNotSelected, checkboxSelected, checkboxSpinning)
+
         })
     })
 })
