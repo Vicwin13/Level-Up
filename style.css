@@ -376,6 +376,7 @@
     background-color: var(--main-bg);
     min-width: max-content;
     width: 100vw;
+    overflow-x: hidden;
 }
 
 nav{
@@ -635,16 +636,18 @@ progress::after{
 .section-two .selection{
     display: flex;
     gap: .5rem;
-    align-items: start;
+    align-items:center;
     width: 100%; 
-    /* background-color: #f3f3f3; */
-
+  
 }
 
 .customize{
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 500;
     padding: 4px;
+    /* margin-top: .3rem; */
+    border: none;
+    background: none;
     color: var(--font-dark);
 }
 
@@ -775,6 +778,12 @@ progress::after{
  font-weight: 400px;
 }
 
+.import{
+  border: none;
+  background: none;
+  margin-left: 1rem;
+}
+
 .email{
     padding: 0px 12px;
     line-height: 0;
@@ -819,15 +828,28 @@ progress::after{
 .dope{
     /* display: flex; */
     display: none;
-    width: 100%;
+    max-width: 100%;
     justify-content: space-between;
+    word-wrap: break-word;
+    overflow: hidden;
 }
+
+.dope p:nth-child(1){
+  border: 2px solid red;
+
+}
+
+
 .big-dope{
     
-    max-width: 100%;
+    width: 100%;
 
 }
+.checkbox-selected{
 
+  width: 24px;
+  height: 24px;
+}
 .show-hidden{
     display: flex;
     
@@ -837,10 +859,10 @@ progress::after{
     display: none;
 }
 
-/* .container{
+.container{
     
-    display: none;
-} */
+    /* display: none; */
+}
 
 
 /* styling the checkbox  */
@@ -852,8 +874,6 @@ progress::after{
     /* display: flex; */
     align-items: flex-start;
     justify-content: center;
-    align-content: self-start;
-
 
 }
 
@@ -881,6 +901,13 @@ progress::after{
 
 .checkbox-selected{
   animation: zoom-in 300ms linear;
+}
+
+.checkbox-holder{
+  align-self: flex-start;
+  padding: 0;
+ 
+
 }
 
 
@@ -949,6 +976,12 @@ progress::after{
 @media screen and (max-width: 530px) {
   .input-container input{
     width: 14.87rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .input-container input{
+    width: 10rem;
   }
 }
 
